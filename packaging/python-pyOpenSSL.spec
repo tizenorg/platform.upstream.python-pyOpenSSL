@@ -20,6 +20,7 @@ Summary:        Python wrapper module around the OpenSSL library
 License:        Apache-2.0
 Group:          Development/Languages/Python
 Source:         http://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-%{version}.tar.gz
+Source1001: 	python-pyOpenSSL.manifest
 BuildRequires:  libopenssl-devel
 BuildRequires:  python-devel
 %{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
@@ -34,6 +35,7 @@ High-level wrapper around a subset of the OpenSSL library, includes
 
 %prep
 %setup -q -n pyOpenSSL-%{version}
+cp %{SOURCE1001} .
 
 %build
 CFLAGS="%{optflags} -fno-strict-aliasing" python setup.py build
@@ -42,6 +44,7 @@ CFLAGS="%{optflags} -fno-strict-aliasing" python setup.py build
 python setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{python_sitearch}/*
 
