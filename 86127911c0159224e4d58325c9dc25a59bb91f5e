@@ -1,0 +1,8 @@
+Change-Id: I86127911c0159224e4d58325c9dc25a59bb91f5e
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 09:39:32 -0700
+Reviewed-on: https://review.tizen.org/gerrit/4895
+Project: platform/upstream/python-pyOpenSSL
+Branch: refs/heads/tizen
