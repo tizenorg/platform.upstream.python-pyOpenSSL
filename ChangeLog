@@ -1,3 +1,71 @@
+2014-01-09  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
+
+	* OpenSSL: Port to the cffi-based OpenSSL bindings provided by
+	  <https://github.com/pyca/cryptography>
+
+2013-10-06  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
+
+	* OpenSSL/ssl/context.c: Add support for negotiating TLS v1.1 or
+	  v1.2.
+
+2013-10-03  Christian Heimes  <christian@python.org>
+
+	* OpenSSL/crypto/x509.c: Fix an inconsistency in memory management
+	  in X509.get_serial_number which leads to crashes on some runtimes
+	  (certain Windows/Python 3.3 environments, at least).
+
+2013-08-11  Christian Heimes  <christian@python.org>
+
+	* OpenSSL/crypto/x509ext.c: Fix handling of NULL bytes inside
+	  subjectAltName general names when formatting an X509 extension
+	  as a string.
+	* OpenSSL/crypto/x509.c: Fix memory leak in get_extension().
+
+2012-04-03  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
+
+	* OpenSSL/crypto/pkey.c: Release the GIL around RSA and DSA key
+	  generation, based on code from INADA Naoki.
+
+2012-02-13  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
+
+	* OpenSSL/ssl/ssl.c: Add session cache related constants for use
+	  with the new Context.set_session_cache_mode method.
+
+	* OpenSSL/ssl/context.c: Add new Context methods
+	  set_session_cache_mode and get_session_cache_mode.
+
+2011-11-01  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
+
+	* OpenSSL/crypto/pkey.c: Raise TypeError when trying to check a
+	  PKey instance which has no private component, instead of crashing.
+	  Based on fix by <lp:~dataway>.
+
+2011-09-14  Žiga Seilnacht <lp:ziga-seilnacht>
+
+	* OpenSSL/crypto/crypto.c: Allow exceptions from passphrase
+	  callbacks to propagate up out of load_privatekey
+	* OpenSSL/crypto/crypto.c: Raise an exception when a too-long
+	  passphrase is returned from a passphrase callback, instead of
+	  silently truncating it.
+	* OpenSSL/crypto/crypto.c: Fix a memory leak when a passphrase
+	  callback returns the wrong type.
+
+2011-09-13  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
+
+	* OpenSSL/crypto/crl.c: Add error handling for the use of
+	  X509_CRL_sign.
+
+2011-09-11  Jonathan Ballet  <lp:multani>
+
+	* doc/: Convert the LaTeX documentation to Sphinx-using ReST.
+	* OpenSSL/: Convert the epytext API documentation to Sphinx-using ReST.
+
+2011-09-08  Guillermo Gonzalez  <guillermo.gonzalez@canonical.com>
+
+	* OpenSSL/ssl/context.c: Add Context.set_mode method.
+	* OpenSSL/ssl/ssl.c: Add MODE_RELEASE_BUFFERS and OP_NO_COMPRESSION
+	  constants.
+
 2011-09-02  Jean-Paul Calderone  <exarkun@twistedmatrix.com>
 
 	* Release 0.13
