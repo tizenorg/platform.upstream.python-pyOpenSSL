@@ -13,7 +13,7 @@
 # published by the Open Source Initiative.
 
 Name:           python-pyOpenSSL
-Version:        0.13
+Version:        0.14
 Release:        0
 Url:            http://launchpad.net/pyopenssl
 Summary:        Python wrapper module around the OpenSSL library
@@ -23,6 +23,7 @@ Source:         http://pypi.python.org/packages/source/p/pyOpenSSL/pyOpenSSL-%{v
 Source1001: 	python-pyOpenSSL.manifest
 BuildRequires:  libopenssl-devel
 BuildRequires:  python-devel
+BuildRequires:  python-setuptools
 %{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
 %description
